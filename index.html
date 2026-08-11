@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Task Manager</title>
+
+<link rel="stylesheet" href="styles.css">
+<link rel="JavaScript" href="app.js">
+
+</head><body><main class="app">
+
+    <!-- Header -->
+    <header class="header">
+        <div>
+            <p class="welcome">WELCOME BACK 👋</p>
+            <h1>Task Manager</h1>
+            <p class="subtitle">
+                Organize your day, one task at a time.
+            </p>
+        </div>
+
+        <div class="header-icon">
+            ✓
+        </div>
+    </header>
+
+
+    <!-- Add Task Section -->
+    <section class="add-task-card">
+
+        <h2>Add a new task</h2>
+
+        <div class="task-input-container">
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="What needs to be done?"
+                autocomplete="off"
+            >
+
+            <button id="addTaskBtn">
+                <span>+</span>
+                Add Task
+            </button>
+        </div>
+
+    </section>
+
+
+    <!-- Task Statistics -->
+    <section class="stats">
+
+        <div class="stat-card">
+            <div class="stat-icon total-icon">
+                📋
+            </div>
+
+            <div>
+                <p>Total Tasks</p>
+                <h3 id="totalTasks">0</h3>
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-icon completed-icon">
+                ✓
+            </div>
+
+            <div>
+                <p>Completed</p>
+                <h3 id="completedTasks">0</h3>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Task List -->
+    <section class="tasks-section">
+
+        <div class="section-header">
+            <div>
+                <h2>My Tasks</h2>
+                <p>Your tasks will appear here.</p>
+            </div>
+
+            <span class="task-count" id="taskCount">
+                0 tasks
+            </span>
+        </div>
+
+
+        <!-- JavaScript will insert tasks here -->
+        <div id="taskList" class="task-list">
+
+            <div class="empty-state" id="emptyState">
+
+                <div class="empty-icon">
+                    ✓
+                </div>
+
+                <h3>No tasks yet</h3>
+
+                <p>
+                    Add your first task and start getting things done.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            Built with ❤️ using HTML, CSS & Vanilla JavaScript
+        </p>
+    </footer>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>
