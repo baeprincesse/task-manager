@@ -43,11 +43,16 @@ const displayTask =()=>{
     const taskElement = document.createElement("div");
 
     taskElement.classList.add("task-item");
-
+    console.log(taskElement.className);
+        if(task.completed){
+          taskElement.classList.add("completed");
+        }
     taskElement.innerHTML = `
         <div class="task-content">
 
-            <div class="task-checkbox"></div>
+            <div class="task-checkbox ${task.completed ? "checked":""}">
+            ${task.completed ? "✓" : ""}
+            </div>
 
             <span class="task-title">
                 ${task.title}
@@ -65,18 +70,22 @@ const displayTask =()=>{
     taskList.appendChild(taskElement);
 
     const deleteButton = taskElement.querySelector(".delete-btn");
-
+    
     deleteButton.addEventListener("click", () => {
         deleteTask(task.id);
     });
-
+    const checkbox = taskElement.querySelector(".task-checkbox");
+    checkbox.addEventListener("click",() =>{
+      completeTasks(task.id);
+    });
 });
 };
 
 //counter
 const updateCounters = () => {
+  const completed = tasks.filter(task =>task.completed);
   totalTasks.textContent = tasks.length;
-
+  completedTasks.textContent = completed.length;
   taskCount.textContent = `${tasks.length} task${tasks.length !== 1 ? "s" : ""}`;
 };
 
@@ -86,4 +95,18 @@ const deleteTask = (id) => {
 
   displayTask();
   updateCounters();
+};
+
+const completeTasks =(id) =>{
+    tasks = tasks.map(task =>{
+      if (task.id === id){
+        return{
+          ...task,
+          completed: !task.completed
+        };
+      }
+      return task;
+    })
+    displayTask();
+    updateCounters();
 };
