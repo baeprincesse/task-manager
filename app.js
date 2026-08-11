@@ -81,9 +81,9 @@ const updateCounters = () => {
 };
 
 //delete
-// const deleteTask = (id) => {
-//   tasks = tasks.filter(task => task.id !== id);
+const deleteTask = (id) => {
+  tasks = tasks.filter(task => task.id !== id);
 
-//   displayTask();
-//   updateCounters();
-// };
+  displayTask();
+  updateCounters();
+};
