@@ -1,86 +1,86 @@
-// const taskInput = document.querySelector("#taskInput");
-// const addTaskBtn = document.querySelector("#addTaskBtn");
-// const taskList = document.querySelector("#taskList");
-// const totalTasks = document.querySelector("#totalTasks");
-// const completedTasks = document.querySelector("#completedTasks");
-// const taskCount = document.querySelector("#taskCount");
-// const emptyState = document.querySelector("#emptyState");
-// let tasks =[];
+const taskInput = document.querySelector("#taskInput");
+const addTaskBtn = document.querySelector("#addTaskBtn");
+const taskList = document.querySelector("#taskList");
+const totalTasks = document.querySelector("#totalTasks");
+const completedTasks = document.querySelector("#completedTasks");
+const taskCount = document.querySelector("#taskCount");
+const emptyState = document.querySelector("#emptyState");
+let tasks =[];
 
-// //add
-// const addTask =()=>{
-//   const title = taskInput.value;
+//add
+const addTask =()=>{
+  const title = taskInput.value;
 
-//   if (title.trim() ===""){
-//     return;
-//   }
+  if (title.trim() ===""){
+    return;
+  }
 
-//   const task = {
-//    id: Date.now(),
-//    title,
-//    completed:false
-//   };
-//   tasks.push(task);
-//   displayTask();
-//   updateCounters();
-//   taskInput.value="";
-//   console.log(tasks);
-// };
-// addTaskBtn.addEventListener("click",addTask);
+  const task = {
+   id: Date.now(),
+   title,
+   completed:false
+  };
+  tasks.push(task);
+  displayTask();
+  updateCounters();
+  taskInput.value="";
+  console.log(tasks);
+};
+addTaskBtn.addEventListener("click",addTask);
  
-// //display
-// const displayTask =()=>{
-//    // Clear the task list
-//    taskList.innerHTML = "";
+//display
+const displayTask =()=>{
+   // Clear the task list
+   taskList.innerHTML = "";
 
-//    // If there are no tasks, show the empty state
-//    if (tasks.length === 0) {
-//        taskList.appendChild(emptyState);
-//        return;
-//    }
-//    tasks.forEach(task => {
+   // If there are no tasks, show the empty state
+   if (tasks.length === 0) {
+       taskList.appendChild(emptyState);
+       return;
+   }
+   tasks.forEach(task => {
 
-//     const taskElement = document.createElement("div");
+    const taskElement = document.createElement("div");
 
-//     taskElement.classList.add("task-item");
+    taskElement.classList.add("task-item");
 
-//     taskElement.innerHTML = `
-//         <div class="task-content">
+    taskElement.innerHTML = `
+        <div class="task-content">
 
-//             <div class="task-checkbox"></div>
+            <div class="task-checkbox"></div>
 
-//             <span class="task-title">
-//                 ${task.title}
-//             </span>
+            <span class="task-title">
+                ${task.title}
+            </span>
 
-//             <div class="task-actions">
-//                 <button class="delete-btn">
-//                     🗑️
-//                 </button>
-//             </div>
+            <div class="task-actions">
+                <button class="delete-btn">
+                    🗑️
+                </button>
+            </div>
 
-//         </div>
-//     `;
+        </div>
+    `;
 
-//     taskList.appendChild(taskElement);
+    taskList.appendChild(taskElement);
 
-//     const deleteButton = taskElement.querySelector(".delete-btn");
+    const deleteButton = taskElement.querySelector(".delete-btn");
 
-//     deleteButton.addEventListener("click", () => {
-//         deleteTask(task.id);
-//     });
+    deleteButton.addEventListener("click", () => {
+        deleteTask(task.id);
+    });
 
-// });
-// };
+});
+};
 
-// //counter
-// const updateCounters = () => {
-//   totalTasks.textContent = tasks.length;
+//counter
+const updateCounters = () => {
+  totalTasks.textContent = tasks.length;
 
-//   taskCount.textContent = `${tasks.length} task${tasks.length !== 1 ? "s" : ""}`;
-// };
+  taskCount.textContent = `${tasks.length} task${tasks.length !== 1 ? "s" : ""}`;
+};
 
-// //delete
+//delete
 // const deleteTask = (id) => {
 //   tasks = tasks.filter(task => task.id !== id);
 
