@@ -6,7 +6,19 @@ const completedTasks = document.querySelector("#completedTasks");
 const taskCount = document.querySelector("#taskCount");
 const emptyState = document.querySelector("#emptyState");
 let tasks =[];
-
+//local Storage
+  const saveTasksToLocalStorage = () => {
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+  };
+  const loadTasksFromLocalStorage = () => {
+    const savedTasks = localStorage.getItem("tasks");
+    if (savedTasks) {
+      tasks = JSON.parse(savedTasks);
+    }
+      displayTask();
+      updateCounters();
+    
+  };
 //add
 const addTask =()=>{
   const title = taskInput.value;
@@ -18,10 +30,13 @@ const addTask =()=>{
   const task = {
    id: Date.now(),
    title,
+   category:"general",
+   date: new Date().toISOString(),
    completed:false
   };
   tasks.push(task);
   displayTask();
+  saveTasksToLocalStorage();
   updateCounters();
   taskInput.value="";
   console.log(tasks);
@@ -95,6 +110,7 @@ const deleteTask = (id) => {
 
   displayTask();
   updateCounters();
+  saveTasksToLocalStorage();
 };
 
 const completeTasks =(id) =>{
@@ -109,4 +125,9 @@ const completeTasks =(id) =>{
     })
     displayTask();
     updateCounters();
+    saveTasksToLocalStorage();
 };
+
+// Load tasks from localStorage when the script runs
+loadTasksFromLocalStorage();
+

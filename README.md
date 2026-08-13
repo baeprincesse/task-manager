@@ -7,6 +7,9 @@ Features:
 - Edit (double-click or Edit button)
 - Mark complete
 - Delete
+- class by categories
+- mark due date
+- mark pending
 - Persistence via `localStorage`
 
 To run locally, simply open the file in any modern browser.
